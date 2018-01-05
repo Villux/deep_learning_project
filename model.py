@@ -22,7 +22,8 @@ def create_model(downsample_channels,
                  activation_function=nn.LeakyReLU(0.2, inplace=True),
                  use_sigmoid=True,
                  upsample_mode = 'nearest',
-                 padding_type = 'zero'
+                 padding_type = 'zero',
+                 need1x1 = True
                  ):
 
     assert len(downsample_channels) == len(upsample_channels) == len(skip_channels)
@@ -90,9 +91,10 @@ def create_model(downsample_channels,
         layer.add(activation_function)
 
         # Upsample with filter size 1x1
-        layer.add(get_conv_layer(upsample_channels[idx], upsample_channels[idx], filter_size=1, padding_type=padding_type))
-        layer.add(nn.BatchNorm2d(upsample_channels[idx]))
-        layer.add(activation_function)
+        if need1x1:
+            layer.add(get_conv_layer(upsample_channels[idx], upsample_channels[idx], filter_size=1, padding_type=padding_type))
+            layer.add(nn.BatchNorm2d(upsample_channels[idx]))
+            layer.add(activation_function)
 
         input_size = d_channels
         layer = next_next_layer
