@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from .concat import Concat
+from concat import Concat
 
 def get_conv_layer(input_size, output_size, filter_size, stride=1, bias=True, padding_type='zero'):
     conv_layer = nn.Sequential()
@@ -47,6 +47,7 @@ def create_model(downsample_channels,
     input_size = input_channel_size
 
     for idx, d_channels in enumerate(downsample_channels):
+        print(f'layer {idx}')
         next_layer = nn.Sequential()
         skip_layer = nn.Sequential()
 
