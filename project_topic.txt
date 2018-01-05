@@ -1,0 +1,75 @@
+1) Insert below the student numbers and names of the 1-3 group members, one per line
+
+
+
+Ville Toiviainen - 357012
+
+Johannes Rauhamaa - 298304
+
+Matias Ristimäki - 298359
+
+
+
+2) Write below the name of your group
+
+
+
+DeepDudes
+
+
+
+3) Write below a short description of the machine learning problem you plan to address
+
+
+
+We will do our project based on this:
+
+https://dmitryulyanov.github.io/deep_image_prior
+
+
+
+We don't have experience with this paper yet, so there is no specific path for us to proceed. We will compare results from different net architectures and hyperparameters and explain what might be the reason for the results. If it turns out that this is too demanding for us, our backup plan is to recognise traffic signs from images. There are good datasets available for that.
+
+
+
+4) Write below what deep learning approach(es) you plan to employ in your project
+
+
+
+Our main problem and backup problem require CNN.
+
+
+
+5) Write below what deep learning software you plan to use in your project
+
+
+
+PyTorch or Tensoflow
+
+
+
+6) Write below what computational resources you plan to utilize in your project
+
+
+
+Our own laptops and computers in Paniikki
+
+
+
+7) Write below what kind of data you plan to use in your experiments
+
+
+
+For the main problem we use data that was used for the experiment and beside that we might generate our own data as well. For backup problem we have big image datasets for traffic sings.
+
+
+
+8) Write below what are the reference methods and results you plan to compare against
+
+
+
+Main problem: https://sites.skoltech.ru/app/data/uploads/sites/25/2017/11/deep_image_prior.pdf
+
+
+
+Backup problem: The German Traffic Sign Recognition Benchmark: A multi-class classification competition http://ieeexplore.ieee.org.libproxy.aalto.fi/document/6033395/?arnumber=6033395
