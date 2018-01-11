@@ -13,8 +13,10 @@ Repository for Deep Learning course's project work
 ### SSH tunnel from Paniikki computers
 In paniikki computer:
 - `ipython notebook --no-browser --port=8889`
+
 In Kosh computer:
 - `ssh -N -f -L localhost:8889:localhost:8889 aalto_username@paniikki_computer`
+
 From personal computer
 - `ssh -N -f -L localhost:8888:localhost:8889 aalto_username@kosh.aalto.fi`
 
