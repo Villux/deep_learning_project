@@ -1,8 +1,10 @@
 import pickle
 import glob
 import os
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
 
 psrn_histories = []
 
