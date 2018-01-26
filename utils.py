@@ -1,3 +1,6 @@
+import os
+import random
+import pickle
 from PIL import Image
 import numpy as np
 import torch
@@ -146,3 +149,32 @@ def get_noisy_image(img_np, sigma):
     img_noisy_pil = np_to_pil(img_noisy_np)
 
     return img_noisy_pil, img_noisy_np
+
+def get_picture_randomly(n=100, root_folder='data/image_set/101_ObjectCategories'):
+    subfolders = [os.path.join(root_folder, folder) for folder in os.listdir(root_folder) if os.path.isdir(os.path.join(root_folder, folder))]
+    images = []
+    for folder in subfolders:
+        images.extend([os.path.join(folder, image) for image in os.listdir(folder) if os.path.isfile(os.path.join(folder, image))])
+    return random.sample(images, n)
+
+def get_model_parameters(net):
+    return sum([np.prod(list(p.size())) for p in net.parameters()]); 
+
+def save_statistics(obj, filename):
+    try:
+        data = pickle.load(open(filename, "rb"))
+    except FileNotFoundError:
+        data = {}
+    extend(data, obj)
+    pickle.dump(data, open(filename,'wb'))
+    
+def get_original_and_corrupted_image(fname, sigma=25/255.):
+    image = get_image(fname)
+    img_pil = crop_image(image, d=32)
+    img_np = pil_to_np(img_pil)
+    _, img_noisy_np = get_noisy_image(img_np, sigma)
+    return img_np, img_noisy_np
+
+def extend(obj, items):
+    for key, value in items.items():
+        obj[key] = value
