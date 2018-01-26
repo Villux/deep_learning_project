@@ -8,6 +8,7 @@ Repository for Deep Learning course's project work
 
 ### Paniikki computers
 - Load anaconda `module load anaconda3`
+- Load cuda9 `module load CUDA/9.0.176.lua`
 - Use virtual env `source activate image`
 
 ### SSH tunnel from Paniikki computers
