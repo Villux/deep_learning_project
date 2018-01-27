@@ -18,5 +18,11 @@ plt.plot(x, psnrs)
 
 plt.legend(["PSNR"], loc='best')
 plt.legend(fontsize="medium")
-
 plt.savefig('psnr_validate.png')
+
+plt.clf()
+
+plt.scatter(idxs, psnrs)
+plt.xlabel("Best PSNR at iteration")
+plt.ylabel("Best PSNR")
+plt.savefig('psnr_validate_scatter.png')
