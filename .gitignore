@@ -102,3 +102,6 @@ ENV/
 
 # Validation set
 data/image_set/
+
+# DS_Store
+.DS_Store
