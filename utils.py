@@ -8,6 +8,9 @@ import torch.nn as nn
 import torchvision
 import matplotlib.pyplot as plt
 from torch.autograd import Variable
+import PIL.ImageDraw as ImageDraw
+import PIL.ImageFont as ImageFont
+
 
 def pil_to_np(img_PIL):
     '''
@@ -178,3 +181,12 @@ def get_original_and_corrupted_image(fname, sigma=25/255.):
 def extend(obj, items):
     for key, value in items.items():
         obj[key] = value
+        
+def get_text_mask(for_image, random_text):
+    font_size = 28
+    font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf", 18, encoding="unic")
+    img_mask = Image.fromarray(np.array(for_image)*0+255)
+    draw = ImageDraw.Draw(img_mask)
+    draw.text((128, 128),random_text , font=font, fill='rgb(0, 0, 0)')
+
+    return img_mask
