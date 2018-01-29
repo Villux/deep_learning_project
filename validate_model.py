@@ -86,17 +86,17 @@ data = {'max_psnrs': [], 'iteration': []}
 args = argparser.parse_args()
 
 def get_model_by_name(name, output_depth):
-    if name is 'basic':
+    if name == 'basic':
         return models.get_default(output_depth=output_depth)
-    elif name is 'simple':
+    elif name == 'simple':
         return models.get_simple(output_depth=output_depth)
-    elif name is 'no-skip':
+    elif name == 'no-skip':
         return models.get_no_skip(output_depth=output_depth)
-    elif name is 'large-skip':
+    elif name == 'large-skip':
         return models.get_large_skip(output_depth=output_depth)
-    elif name is 'inc-no-skip':
+    elif name == 'inc-no-skip':
         return models.get_inc_no_skip(output_depth=output_depth)
-    elif name is 'inc-dec-filter-size':
+    elif name == 'inc-dec-filter-size':
         return models.get_inc_dec_filter_size(output_depth=output_depth)
 
 i = 0
@@ -105,7 +105,7 @@ for path in picture_paths:
     print(args.model)
     img_np, img_noisy_np = utils.get_original_and_corrupted_image(path)
 
-    net = get_model_by_name(args.model, output_depth=img_np.shape[0])
+    net = get_model_by_name(str(args.model), output_depth=img_np.shape[0])
     net.type(dtype)
 
     initial_input = get_net_input((img_np.shape[2], img_np.shape[1], img_np.shape[0]))
